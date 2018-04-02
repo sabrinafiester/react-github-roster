@@ -24,9 +24,12 @@ export class UserList extends React.Component {
             content = this.renderUsers();
         }
         return(
+            <div>
+            <h3 className="card-title py-2">Members</h3>
             <ul className="list-group list-group-flush">
-            {content}
+                {content}
             </ul>
+            </div>
         )
     }
 }
