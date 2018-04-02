@@ -28,14 +28,12 @@ export class OrganizationCard extends React.Component {
             console.log('org');
             console.log(org);
             content = (
-                <div className="card org-card" key={org.id}>
-                    <div className="card-body">
+                <div className="card" key={org.id}>
+                    <div className="card-body text-center">
                         <img className="card-img-top org-logo mx-auto" src={org.avatar_url} alt="Card image cap"/>
-                        <div className="card-body">
-                            <h5 className="card-title">{org.name}</h5>
-                            <p className="card-text">{org.location}</p>
-                            <p className="card-text"><small className="text-muted">Last updated {new Date(org.updated_at).toLocaleString()} </small></p>
-                        </div>
+                            <h5 className="card-title mx-auto px-auto">{org.name}</h5>
+                            <p className="card-text mx-auto px-auto">{org.location}</p>
+                            <p className="card-text mx-auto px-auto"><small className="text-muted">Last updated {new Date(org.updated_at).toLocaleString()} </small></p>
                     </div>
                 </div>
             );

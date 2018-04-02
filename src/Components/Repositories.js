@@ -3,7 +3,7 @@ import React from 'react';
 export class Repositories extends React.Component {
     renderRepos() {
         return this.props.repos.map(repo => (
-            <div className="card repo-card" key={repo.id}>
+            <div className="card repo-card text-center" key={repo.id}>
                 <div className="card-body">
                     <a href={repo.html_url}>
                         <h5 className="card-title">{repo.name}</h5>

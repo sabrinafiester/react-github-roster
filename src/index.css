@@ -8,6 +8,11 @@ body {
 }*/
 .borderless > .list-group-item { border: none; }
 
+.user-details {
+  max-height: 300px;
+  width: auto;
+}
+
 .org-card {
   max-width: 300px;
   padding-top: 20px;
