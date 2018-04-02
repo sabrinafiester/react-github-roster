@@ -14,10 +14,10 @@ export class UserDetails extends React.Component {
                         <div className="card-body">
                             <h5 className="card-title">{user.login}</h5>
                             <ul className="list-group list-group-flush borderless">
-                                <li className="list-group-item ">{user.name}</li>
-                                <li className="list-group-item">{user.location}</li>
-                                {user.email && <li className="list-group-item">{user.email}</li>}
-                                <li className="list-group-item">{user.join_date.toDateString()}</li>
+                                <li className="list-group-item ">Name: {user.name}</li>
+                                <li className="list-group-item">Location: <span>{user.location}</span></li>
+                                {user.email && <li className="list-group-item">Email: {user.email}</li>}
+                                <li className="list-group-item">Github member since: {user.join_date.toLocaleDateString()}</li>
                             </ul>
                         </div>
                     </div>

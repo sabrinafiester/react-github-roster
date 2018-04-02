@@ -19,9 +19,13 @@ export class UserList extends React.Component {
             )
     )}
     render() {
+        let content = "Loading..";
+        if(this.props.users && this.props.users.length > 0 ) {
+            content = this.renderUsers();
+        }
         return(
             <ul className="list-group list-group-flush">
-            {this.renderUsers()}
+            {content}
             </ul>
         )
     }

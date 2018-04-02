@@ -1,6 +1,7 @@
 import React from 'react';
 import {UserDetails} from './UserDetails';
 import {Repositories} from "./Repositories";
+import {Organizations} from "./Organizations";
 
 export class Details extends React.Component {
     constructor(props) {
@@ -56,10 +57,9 @@ export class Details extends React.Component {
                 that.setState({orgs: result});
                 return result;
             })
-            
-            
         }
     }
+
 
     render() {
         console.log('render');
@@ -67,8 +67,9 @@ export class Details extends React.Component {
         let user = this.state.user;
         return(
             <div>
-            <UserDetails user={user} />
-            <Repositories repos={this.state.repos} />
+                <UserDetails user={user} />
+                <Repositories repos={this.state.repos} />
+                <Organizations orgs={this.state.orgs} />
             </div>
         )
     }
