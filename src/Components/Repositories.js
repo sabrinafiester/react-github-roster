@@ -6,8 +6,9 @@ export class Repositories extends React.Component {
             <div className="card repo-card text-center" key={repo.id}>
                 <div className="card-body">
                     <a href={repo.url}>
-                        <h5 className="card-title">{repo.name}</h5>
+                        <h5 className="card-title">{repo.name} {repo.isFork && <small className="card-text text-muted">- fork</small>}</h5>
                     </a>
+
                     <p className="card-text">{repo.description}</p>
                     <div className="timestamp-box">
                         <p className="card-text card-timestamp"><small className="text-muted">Created {new Date(repo.createdAt).toLocaleDateString()} </small></p>

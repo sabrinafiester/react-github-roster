@@ -68,7 +68,7 @@ const detailQ = gql`
           },
           
         },
-        repositoriesContributedTo(first: 100) {
+        repositoriesContributedTo(first: 100, contributionTypes: [COMMIT]) {
           totalCount,
           nodes {
           id,
@@ -122,10 +122,13 @@ export class Details extends React.Component {
             const repoObj = res.data.user.repositories.nodes;
             const orgObj = res.data.user.organizations.nodes;
             const contRepoObj = res.data.user.repositoriesContributedTo.nodes;
-            const commitArr = await that.getCommitCount(repoObj, contRepoObj);
-            const totalCommits = commitArr.reduce((a, b) =>
-                a + b);
-
+            let commitArr = await that.getCommitCount(repoObj, contRepoObj);
+            commitArr = commitArr.filter( Number );
+            let totalCommits = 0;
+            if(commitArr.length > 0) {
+                totalCommits = commitArr.reduce((a, b) =>
+                    a + b);
+            }
             const userObj = {
                 login: res.data.user.login,
                 id: res.data.user.id,
@@ -144,9 +147,15 @@ export class Details extends React.Component {
 
     async getCommitCount(userRepos, contRepos) {
         const userCommits = userRepos.map(repNode=>{
+            if(!repNode.defaultBranchRef) {
+                return false;
+            }
             return repNode.defaultBranchRef.target.history.totalCount;
         });
         const contCommits = contRepos.map(contNode=>{
+            if(!contNode.defaultBranchRef) {
+                return false;
+            }
             return contNode.defaultBranchRef.target.history.totalCount;
         });
 

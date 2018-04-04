@@ -6,7 +6,7 @@ export class Organizations extends React.Component {
             <div className="card repo-card text-center" key={org.id}>
                 <div className="card-body text-center">
                     <img className="card-img-top org-logo mx-auto" src={org.avatarUrl} alt=""/>
-                    <h5 className="card-title mx-auto px-auto">{org.name}</h5>
+                    <h5 className="card-title mx-auto px-auto"><a href={org.url}>{org.name}</a></h5>
                     <p className="card-text mx-auto px-auto">{org.location}</p>
                 </div>
             </div>
