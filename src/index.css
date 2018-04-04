@@ -20,3 +20,14 @@ body {
 .org-logo {
   max-width: 150px;
 }
+
+.card-timestamp {
+  margin: 0;
+}
+
+.timestamp-box {
+  margin-top: 15px;
+}
+.repo-card {
+  min-height: 100px;
+}
