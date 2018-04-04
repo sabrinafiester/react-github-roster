@@ -8,7 +8,7 @@ import gql from "graphql-tag";
 const client = new ApolloClient({
     uri: "https://api.github.com/graphql",
     request: async (operation) => {
-        const token = 'bearer 7edeeecfc3f48e7e50f665b4e17043764e606478';
+        const token = 'bearer ' + process.env.REACT_APP_PAT;
         operation.setContext({
             headers: {
                 authorization: token
